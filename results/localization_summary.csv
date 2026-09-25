@@ -1,0 +1,13 @@
+setting,phase,metric,mean_slope,interval_95_low,interval_95_high,decision,source
+initial,validation,L,0.001899,-0.000324,0.004122,equivalent,docs/EXPOSURE_OBSERVABILITY_STUDY_ONLY_REPORT.md
+initial,confirmation,L,0.003925,0.001635,0.006212,equivalent,docs/EXPOSURE_OBSERVABILITY_STUDY_ONLY_REPORT.md
+fresh,validation,L,0.003926,0.001857,0.005997,positive response,experiments/studies/extension/FINAL_RESULTS.md
+fresh,confirmation,L,0.002294,0.000335,0.004253,positive response,experiments/studies/extension/FINAL_RESULTS.md
+fresh,validation,N,0.001014,-0.000920,0.002949,powered equivalence,experiments/studies/extension/FINAL_RESULTS.md
+fresh,confirmation,N,-0.000418,-0.002237,0.001402,powered equivalence,experiments/studies/extension/FINAL_RESULTS.md
+fresh,validation,U,0.050564,0.027866,0.073265,positive gate passed,experiments/studies/extension/FINAL_RESULTS.md
+fresh,confirmation,U,0.056726,0.033627,0.079865,positive gate passed,experiments/studies/extension/FINAL_RESULTS.md
+pythia160,validation,L,0.000648,-0.000102,0.001399,powered equivalence,experiments/studies/extension/FINAL_RESULTS.md
+pythia160,confirmation,L,0.001688,0.000931,0.002447,powered equivalence,experiments/studies/extension/FINAL_RESULTS.md
+smollm2,validation,N,-0.0012003242724330247,-0.0019958997879169745,-0.0004072442813236841,descriptive,experiments/studies/study3/analysis/final_summary.json
+smollm2,confirmation,N,-0.0005439151028289427,-0.0013590690338028495,0.0002721847649610138,equivalent,experiments/studies/study3/analysis/final_summary.json

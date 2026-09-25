@@ -1,0 +1,11 @@
+{
+  "docs/EXPOSURE_OBSERVABILITY_STUDY_ONLY_REPORT.md": "3e4f0d74b5af98d5be17b32bca1f5f92ec78404291f5889ebd56cb40adc10417",
+  "experiments/studies/extension/FINAL_RESULTS.md": "a2803f87a7cd50bf4a7761e0c62aa72f930e1ccb1022b947c28344a50053dfad",
+  "experiments/studies/study3/analysis/final_summary.json": "2ef9a3506306c2d67a7c9df15b7ac731b43b306aa0e8ec269d8a13d417f0fb0d",
+  "reviews/reviewer_revision/gap_attribution_20260907/primary_summary.csv": "722b1eaf9a87e87d71bd8593813c04cb44e59d737935d22a0658e93e103e470c",
+  "experiments/studies/geometric_trajectory_v1/runs/study_20260909_r4/report/main_metrics.csv": "9f6787c7a5a73b5f65a46a00dd62ab0e1fa6af1e0db52e4315293aefde64641a",
+  "experiments/studies/geometric_trajectory_v1/runs/study_20260909_r4/report/target_summary.csv": "fb44affdc6b4d7c2f508ea9c9b1e0f9ed0e07a6530d299de8317f6bf7779c8ff",
+  "experiments/studies/geometric_trajectory_v1/runs/study_20260909_r4/report/phase_summary.csv": "8c8540cc0f99f117663825e69f5dd5d930594fc8074ad4fa2d3169f970a72b39",
+  "experiments/studies/geometric_trajectory_v1/runs/study_20260909_r4/property_comparison/auc_table.csv": "698688eab4d70437de076ff64f407362700d1740520d5310d9911a4f6e2d6c78",
+  "experiments/studies/context_selective_retrieval_v3/EXPERIMENT_WRITEUP.md": "c57764bd67b0c719eb522344f64d10f49d26645401fa195fbccde401fc610e3a"
+}

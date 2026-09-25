@@ -1,0 +1,69 @@
+{
+  "version": "study3-smollm2-v1",
+  "status": "prospective-final-awaiting-freeze",
+  "primary_question": "Does the positive R allocation response replicate in validation and independent-target confirmation at SmolLM2-135M?",
+  "estimand": "fixed-budget document allocation response under within-block interference",
+  "model_pin": "model_pin.json",
+  "document_population": {
+    "planned_source": "arXiv scientific/technical title-plus-abstract records",
+    "renderer": "normalized title + newline + normalized abstract, UTF-8",
+    "first_version_after_utc": "2025-02-06T10:34:41Z",
+    "provenance_is_inclusion_gate": true,
+    "semantic_novelty_claim": false,
+    "non_fineweb_pipeline": true
+  },
+  "design": {
+    "doses": [0, 1, 2, 4, 8, 16],
+    "block_total_exposure": 31,
+    "maximum_blocks_per_phase": 300,
+    "candidate_primary_block_counts": [200, 250, 300],
+    "selected_primary_blocks_per_phase": 200,
+    "primary_power_decision": "primary_power_decision.json",
+    "minimum_primary_R_gate_power": 0.9,
+    "targets": {
+      "validation": ["smollm2_1", "smollm2_2", "smollm2_3"],
+      "confirmation": ["smollm2_4", "smollm2_5", "smollm2_6"]
+    },
+    "assignment": "complete six-target Latin rotation",
+    "randomization_draws": 99999
+  },
+  "claims": {
+    "primary": "R positive gate in validation and independent-target confirmation",
+    "secondary": "A positive gate in validation and independent-target confirmation",
+    "localization": "validation N descriptive; confirmation-only N equivalence if validation-based prospective power >= 0.80",
+    "L": "descriptive",
+    "excluded": ["U", "attacks", "new theory", "intermediate checkpoints", "rescue analyses"]
+  },
+  "positive_gate": {
+    "all_three_target_slopes_positive": true,
+    "plus_one_one_sided_p_strictly_below": 0.025,
+    "design_interval_confidence": 0.95,
+    "lower_endpoint_positive": true
+  },
+  "N_equivalence": {
+    "standardized_margin": [-0.05, 0.05],
+    "interval_confidence": 0.9,
+    "minimum_confirmation_power": 0.8,
+    "phase": "confirmation only when prospectively authorized after validation"
+  },
+  "duplicate_rules": {
+    "exact_sha256_unique": true,
+    "normalized_sha256_unique": true,
+    "word_5_shingle_jaccard_strictly_below": 0.8,
+    "character_5gram_tfidf_cosine_strictly_below": 0.8
+  },
+  "document_summary": {
+    "transition_first": true,
+    "quantile": 0.9,
+    "quantile_method": "linear",
+    "fields": ["A", "L", "R", "N", "E_y", "D_p", "D_log", "D_z", "D_sqrt"]
+  },
+  "phase_access": {
+    "validation": "validation documents on smollm2_1..smollm2_3 after freeze",
+    "confirmation": "confirmation documents on smollm2_4..smollm2_6 only after complete hashed validation and N-power decisions",
+    "confirmation_runs_after_any_valid_validation_decision": true,
+    "complementary": "only after final confirmation; no primary claim authority"
+  },
+  "freeze_authority": "freeze.json",
+  "held_out_outcomes_opened": false
+}
