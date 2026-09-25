@@ -1,6 +1,6 @@
 # Predictive Geometry in Language Models
 
-Code and compact result inputs for the empirical findings reported in the paper. The manuscript, PDF, and figures are not part of this repository. For the allocation-label ranking experiment, only ROC AUC is included; the earlier low-FPR/TPR analyses are outside the paper's reported results.
+Reproducibility code and compact result inputs for *Predictive Geometry in Language Models*. The manuscript, PDF, and figures are not part of this repository. For the allocation-label ranking experiment, only ROC AUC is included; the earlier low-FPR/TPR analyses are outside the paper's reported results.
 
 ## Quick start
 
