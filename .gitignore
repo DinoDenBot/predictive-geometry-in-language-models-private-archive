@@ -1,0 +1,15 @@
+.DS_Store
+.venv*/
+__pycache__/
+.pytest_cache/
+*.py[cod]
+*.joblib
+*.npy
+*.npz
+*.parquet
+*.pt
+*.tar
+*.zip
+*.pdf
+*.png
+*.jpg
