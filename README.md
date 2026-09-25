@@ -1,50 +1,58 @@
-# Paper result reproducibility code
+# Predictive Geometry in Language Models
 
-This private branch holds code and compact numeric inputs for the empirical results reported in *Predictive Geometry in Language Models*. It contains no manuscript source, PDF, or figures. It excludes other project experiments and the retired low-FPR/TPR exports.
+Code and compact result inputs for the empirical findings reported in the paper. The manuscript, PDF, and figures are not part of this repository. For the allocation-label ranking experiment, only ROC AUC is included; the earlier low-FPR/TPR analyses are outside the paper's reported results.
 
-## Scope
+## Quick start
 
-| Reported result | Code | Compact input |
-|---|---|---|
-| Eight randomized exposure phases, including alignment/localization analysis | `src/exposure_observability.py`, `src/run_exposure_observability.py`, `src/exposure_geometry_extension.py`, `src/run_exposure_geometry_extension.py`, `src/execute_exposure_geometry_extension.py`, `experiments/studies/study3/specification/software/` | `results/exposure_summary.csv`, `results/localization_summary.csv` |
-| Retrospective binary/gap attribution | `reviewer_revision/run_gap_attribution.py`, `reviewer_revision/summarize_gap_attribution.py` | `results/gap_attribution.csv` |
-| Final-checkpoint allocation-label AUC | `experiments/studies/geometric_trajectory_v1/` | `results/trajectory_*_auc.csv` |
-| Protected output-row edit and ordinary-training comparison | `experiments/studies/context_selective_retrieval_v3/` | `results/editing_*.csv` |
-
-The `src/cats_identification.py` and `src/run_cats_agnews.py` files are imported by the reported pipelines. Their presence does not add the older CATS experiments to this release's result scope.
-
-## Check the compact results
-
-Python 3.10 or later is sufficient for this check:
+Run the result check from the repository root. It uses only the Python standard library and does not download models or data:
 
 ```sh
 python3 scripts/verify_results.py
 ```
 
-The script checks eight positive exposure slopes, the exact mean-response bridge and binary shares, equal target-stratum AUC aggregation, and editing/locality arithmetic. It prints the headline results. The AUC inputs contain **AUC only**; their source reports' empirical TPR columns are not included.
+The command prints the eight exposure-phase slopes, the binary and gap shares, the four-setting AUC comparison, and the editing locality ratios. It also checks the arithmetic and SHA-256 hashes of the bundled code. A successful run verifies the compact inputs; it does not rerun model training or inference.
 
-If the original study repository is available, verify the nine source result files used to extract the compact inputs:
+## Results and code
+
+| Finding reported in the paper | Implementation | Compact result inputs |
+| --- | --- | --- |
+| Randomized exposure responses across eight phases, including alignment and localization | `src/exposure_observability.py`, `src/exposure_geometry_extension.py`, their `run_*` and `execute_*` entry points, and `experiments/studies/study3/specification/software/` | `results/exposure_summary.csv`, `results/localization_summary.csv` |
+| Retrospective decomposition of the mean response into binary motion and the gap | `reviewer_revision/run_gap_attribution.py`, `reviewer_revision/summarize_gap_attribution.py` | `results/gap_attribution.csv` |
+| Final-checkpoint ranking of the controlled positive-dose label | `experiments/studies/geometric_trajectory_v1/` | `results/trajectory_*_auc.csv` |
+| Protected output-row edit and ordinary-training comparison | `experiments/studies/context_selective_retrieval_v3/` | `results/editing_*.csv` |
+
+`src/cats_identification.py` and `src/run_cats_agnews.py` are retained because the reported study code imports functions from them. Results from the older CATS studies are not included.
+
+The AUC files contain the setting, target, phase, and property summaries used in the paper. They omit empirical TPR columns from the original reports. The initial exposure study's R p-values include the reported three-size selection correction; its source report records the uncorrected values.
+
+## Provenance check
+
+The compact inputs were extracted from nine original result files. If those files are available in the original study repository, verify their hashes as well:
 
 ```sh
 python3 scripts/verify_results.py --source-root /path/to/original-study-repository
 ```
 
-`results/source_hashes.json` records those exact source-file SHA-256 values. `results/code_hashes.json` records the bundled Python code hashes. The compact CSVs are selected columns and outcomes from those sources, not new estimates. One unused helper's personal absolute-path defaults were replaced with generic placeholders; its scientific calculations were left intact.
-The initial setting's R p-values in `exposure_summary.csv` apply the reported three-size selection correction to the raw 0.00001 values in the source report.
+`results/source_hashes.json` names the source files and records their SHA-256 hashes. `results/code_hashes.json` records the bundled Python files. One imported helper has generic placeholders in place of personal path defaults; its calculations are unchanged.
 
-## Run the study code
+## Full experiment reruns
 
-The full study pipelines require the frozen document assignments, model checkpoints, acquisition measurements, and some licensed or externally stored source data. Those large inputs are not in this branch. Set local paths or stage the original hash-verified artifacts before a full rerun; several preserved source files still have historical default paths. The results check above runs without them. A clean rerun of model training, acquisition, classifier fitting, randomization tests, or editing is **not** established by the compact result check.
+The full pipelines also need frozen document assignments, model checkpoints, source documents, and acquired prediction measurements. These large or restricted inputs are not bundled here. Some preserved entry points contain historical storage defaults that must be set for a new machine. Consequently, this repository supports inspection of the implementation and checking of the compact reported results, while a clean rerun of training, acquisition, classifier fitting, randomization tests, or editing requires those additional artifacts.
 
-The source dependencies are listed in `requirements-review.txt` and `requirements-mimir.txt`. For code-level tests, install them in a virtual environment and set:
+The pinned Python dependencies are in `requirements-review.txt` and `requirements-mimir.txt`. To run code-level tests, create a Python 3.12 virtual environment and install the dependencies:
 
 ```sh
+python3.12 -m venv .venv
+.venv/bin/python -m pip install -r requirements-review.txt
 export PYTHONPATH=src:experiments/studies:experiments/studies/study3/specification/software:.
-python3 -m pytest -q tests experiments/studies/geometric_trajectory_v1/test_trajectory.py experiments/studies/study3/specification/software/test_study3.py experiments/studies/context_selective_retrieval_v3
+.venv/bin/python -m pytest -q tests \
+  experiments/studies/geometric_trajectory_v1/test_trajectory.py \
+  experiments/studies/study3/specification/software/test_study3.py \
+  experiments/studies/context_selective_retrieval_v3
 ```
 
-Some tests need external artifacts and may not run in a clean clone. The compact-result check is self-contained.
+Some tests require external artifacts. The quick result check above is self-contained.
 
-## Release preparation
+## Anonymous release
 
-This repository is private. Historical code can contain local paths and infrastructure defaults. Review those, dependency licenses, and data rights before making any branch public or submitting an anonymous artifact.
+Review remaining machine-specific defaults, dependency licenses, and data rights before publishing. If releasing from this private working repository, use a clean release history so earlier private commits are not exposed.
