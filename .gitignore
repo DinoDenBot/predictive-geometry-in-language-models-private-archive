@@ -13,3 +13,9 @@ __pycache__/
 *.pdf
 *.png
 *.jpg
+paper/
+overleaf/
+*.tex
+*.bib
+*.sty
+*.bst

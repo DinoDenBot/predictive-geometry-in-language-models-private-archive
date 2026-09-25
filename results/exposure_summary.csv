@@ -1,0 +1,17 @@
+setting,phase,metric,mean_slope,p_value,target_slopes,source
+initial,validation,R,0.009506,0.00003,"0.010309,0.008984,0.009224",docs/EXPOSURE_OBSERVABILITY_STUDY_ONLY_REPORT.md
+initial,confirmation,R,0.009753,0.00003,"0.008691,0.010234,0.010334",docs/EXPOSURE_OBSERVABILITY_STUDY_ONLY_REPORT.md
+initial,validation,A,0.016364,0.00001,,docs/EXPOSURE_OBSERVABILITY_STUDY_ONLY_REPORT.md
+initial,confirmation,A,0.016686,0.00001,,docs/EXPOSURE_OBSERVABILITY_STUDY_ONLY_REPORT.md
+fresh,validation,R,0.009853,0.00001,,experiments/studies/extension/FINAL_RESULTS.md
+fresh,confirmation,R,0.009999,0.00001,,experiments/studies/extension/FINAL_RESULTS.md
+fresh,validation,A,0.016697,0.00001,,experiments/studies/extension/FINAL_RESULTS.md
+fresh,confirmation,A,0.016978,0.00001,,experiments/studies/extension/FINAL_RESULTS.md
+pythia160,validation,R,0.015606,0.00001,,experiments/studies/extension/FINAL_RESULTS.md
+pythia160,confirmation,R,0.015967,0.00001,,experiments/studies/extension/FINAL_RESULTS.md
+pythia160,validation,A,0.025300,0.00001,,experiments/studies/extension/FINAL_RESULTS.md
+pythia160,confirmation,A,0.024570,0.00001,,experiments/studies/extension/FINAL_RESULTS.md
+smollm2,validation,R,0.002807633240868275,1e-05,"0.0031235847899092084,0.002244876151248657,0.003054438781446958",experiments/studies/study3/analysis/final_summary.json
+smollm2,validation,A,0.0046726031842262905,1e-05,"0.004422352756898591,0.0045004876559304125,0.005094969139849868",experiments/studies/study3/analysis/final_summary.json
+smollm2,confirmation,R,0.002950992790199298,1e-05,"0.0030584616196966535,0.0031843223305723003,0.0026101944203289406",experiments/studies/study3/analysis/final_summary.json
+smollm2,confirmation,A,0.0047843902968711305,1e-05,"0.004968076587077196,0.005225671599584378,0.004159422703951817",experiments/studies/study3/analysis/final_summary.json
